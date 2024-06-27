@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Sign Up Form</title>
+  </head>
+  <body>
+    <form>
+      <h1>Sign Up Form</h1>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <div class="show-password-container">
+        <input type="password" id="password" name="password" required>
+        <button type="button" class="show-password" onclick="togglePassword()">Show Password</button>
+      </div>
+
+      <input type="submit" value="Sign Up">
+    </form>
+
+    <style>
+      / General styles /
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        margin: 0 0 1rem;
+      }
+
+      form {
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 2rem;
+        border: 1px solid #ccc;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+      }
+
+      input[type="submit"] {
+        background-color: #303F9F;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+      }
+
+      / Show password styles /
+      .show-password-container {
+        position: relative;
+      }
+
+      .show-password {
+        position: absolute;
+        right: 0;
+        bottom: 0.5rem;
+        background: none;
+        border: none;
+        color: #303F9F;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      / Mobile styles /
+      @media (max-width: 600px) {
+        form {
+          padding: 1rem;
+        }
+      }
+    </style>
+
+    <script>
+      function togglePassword() {
+        const passwordInput = document.getElementById('password');
+        const showPasswordButton = document 
+.getElementById('show-password');
+
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          showPasswordButton.textContent = 'Hide Password';
+        } else {
+          passwordInput.type = 'password';
+          showPasswordButton.textContent = 'Show Password';
+        }
+      }
+
+      const form = document.querySelector('form');
+  const submitButton = document.querySelector('input[type="submit"]');
+
+  function validateEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  }
+
+  function validateForm(event) {
+    event.preventDefault();
+    
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const errorDiv = document.getElementById('error');
+    
+    let errorMessages = [];
+    if (nameInput.value === '') {
+      errorMessages.push('Please enter your name.');
+    }
+    if (emailInput.value === '') {
+      errorMessages.push('Please enter your email address.');
+    } else if (!validateEmail(emailInput.value)) {
+      errorMessages.push('Please enter a valid email address.');
+    }
+    if (passwordInput.value === '') {
+      errorMessages.push('Please enter a password.');
+    }
+
+    if (errorMessages.length > 0) {
+      errorDiv.innerHTML = '<ul>' + errorMessages.map(message => `<li>${message}</li>`).join('') + '</ul>';
+    } else {
+      form.submit();
+    }
+  };
+
+  form.addEventListener('submit', vali Los altos p0dateForm);
+
+  // Add a listener for when the document is loaded
+document.addEventListener("DOMContentLoaded", function() {
+
+// Get the button element from the HTML
+var button = document.getElementById("submit-button");
+
+// Add a click listener to the button
+button.addEventListener("click", function() {
+
+  // Get the value of the input field
+  var input = document.getElementById("input-field").value;
+
+  // Do something with the input (e.g. validate it, send it to a server-side script, etc.)
+  console.log("User input: " + input);
+});
+
+});
+    </script>
+  </body>
+</html>
